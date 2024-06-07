@@ -1,0 +1,74 @@
+paths:
+  /api/productos:
+    get:
+      tags:
+        - Products Controllers
+      summary: Obtener todos los productos existentes
+      responses:
+        "200":
+          description: Done
+        "500":
+          description: Error obteniendo productos
+    post:
+      tags:
+        - Products Controllers
+      summary: Alta de productos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - price
+              properties:
+                title:
+                  type: string
+                  default: Titulo
+                description:
+                  type: string
+                  default: descripción
+                short_description:
+                  type: string
+                  default: descripción corta
+                price:
+                  type: number
+                  default: precio
+                discount:
+                  type: number
+                  default: descuento
+                image_cover_url:
+                  type: string
+                  default: /mi_imagen
+                developer_id: 
+                  type: integer
+                  default: id del desarrollador
+      responses:
+        "201":
+          description: Created
+        "409":
+          description: Conflict
+        "500":
+          description: Server Error
+  /api/productos/{id}:
+    get:
+      tags:
+          - Products Controllers
+      summary: Obtener un producto por ID
+      description: Obtiene los detalles de un producto específico usando su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del producto que se va a obtener
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Producto encontrado
+        "400":
+          description: Solicitud incorrecta (ID no válido)
+        "404":
+          description: Producto no encontrado
+          

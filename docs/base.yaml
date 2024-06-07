@@ -1,0 +1,7 @@
+openapi: 3.0.0
+info:
+  title: Neon Games API EndPoints
+  description: CRUD operaciones disponibles en el servidor via http
+  version: 1.0.1
+servers:
+  - url: http://localhost:8080

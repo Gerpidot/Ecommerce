@@ -1,0 +1,39 @@
+body {
+    background-color: #2e2e2e !important;
+    color: #ffffff !important;
+  }
+  
+  .swagger-ui .topbar {
+    background-color: #1e1e1e;
+  }
+  
+  .swagger-ui .scheme-container,
+  .swagger-ui .response-col_status,
+  .swagger-ui .response-col_links,
+  .swagger-ui .response-col_description {
+    background-color: #3e3e3e;
+    color: #ffffff;
+  }
+  
+  .swagger-ui .parameter__type,
+  .swagger-ui .parameter__in,
+  .swagger-ui .parameter__name,
+  .swagger-ui .parameter__value,
+  .swagger-ui .parameter__description,
+  .swagger-ui .model-title,
+  .swagger-ui .model {
+    color: #ffffff;
+  }
+  
+  .swagger-ui .info,
+  .swagger-ui .opblock-summary,
+  .swagger-ui .opblock-description-wrapper {
+    background-color: #2e2e2e;
+    color: #ffffff;
+  }
+  
+  .swagger-ui .btn {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  

@@ -1,0 +1,27 @@
+paths:
+  /api/category/post:
+    post:
+      tags:
+        - Category Controller
+      summary: Crear una categoría
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - description
+              properties:
+                description:
+                  type: string
+                  default: role playing
+      responses:
+        "201":
+          description: Created
+        "409":
+          description: Conflict
+        "404":
+          description: Not Found
+        "500":
+          description: Server Error

@@ -1,0 +1,106 @@
+paths:
+  /api/developers:
+    get:
+      tags:
+        - Developer Controllers
+      summary: Obtener todos los developers existentes
+      responses:
+        "200":
+          description: Done
+        "500":
+          description: Error obteniendo developers
+    post:
+      tags:
+        - Developer Controllers
+      summary: Crear un developer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - company_name
+              properties:
+                company_name:
+                  type: string
+                  default: mi_empresa
+                description:
+                  type: string
+                  default: la_mejor_empresa
+      responses:
+        "200":
+          description: Created
+        "500":
+          description: Server Error
+  /api/developers/{id}:
+    get:
+      tags:
+        - Developer Controllers
+      summary: Obtener un desarrollador por ID
+      description: Obtiene los detalles de un desarrollador específico usando su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del desarrollador que se va a obtener
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Desarrollador encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "123"
+                  company_name:
+                    type: string
+                    example: "mi_empresa"
+                  description:
+                    type: string
+                    example: "la_mejor_empresa"
+        "400":
+          description: Solicitud incorrecta (ID no válido)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "ID no válido"
+        "404":
+          description: Desarrollador no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Desarrollador no encontrado"
+    delete:
+      tags:
+        - Developer Controllers
+      summary: Eliminar un desarrollador por ID
+      description: Elimina un desarrollador específico junto con sus productos asociados usando su ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del desarrollador que se va a eliminar
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Desarrollador y productos asociados eliminados correctamente
+        "400":
+          description: Solicitud incorrecta (ID no válido)
+        "404":
+          description: Desarrollador no encontrado
+        "500":
+          description: Error interno del servidor
